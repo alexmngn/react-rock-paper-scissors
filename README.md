@@ -30,5 +30,6 @@ Also computer generated plays need to be random
 
 ##Submitting your solution
 
+Please send a zip file with your solution or a link to public repository to gumtreetasks at hotmail.co.uk
 Please include a brief description of your solution and what decisions you have made in its creation.
 
