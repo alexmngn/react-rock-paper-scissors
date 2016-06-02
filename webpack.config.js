@@ -7,7 +7,7 @@ module.exports = {
 	cache: true,
 	debug: true,
 	context: process.cwd(),
-	devtool: 'eval',
+	devtool: 'source-map',
 	devServer: {
 		inline: true,
 		port: 3333
