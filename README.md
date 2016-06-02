@@ -32,7 +32,7 @@ Don't know the game? http://en.wikipedia.org/wiki/Rock-paper-scissors
 
 Alongside this document you should find a prepared project with a few example files that help you to get started. Feel free to change the structure or add new files as you see fit.
 
-We provided similar but simplified tooling / setup we use on an everyday basis here at Gumtree, but you're welcome to change anything.
+We provided similar but simplified tooling / setup we use on an everyday basis here at Gumtree UK, but you're welcome to change anything.
 
 ### Tooling
 
@@ -70,9 +70,9 @@ We've added a few example files under the `src/` folder as a sanity check that t
 
 When you first run `npm run dev` and open the project in the browser at the given url, you should see a text saying *"you are ready to go!"* in white on a green background and *"it works well!"* in the browser's console.
 
-We hope you're already familiar with the CommonJS pattern Node.js (and also `webpack`) uses or the ES2015/ES6 imports. You'll see some examples in the provided files under the `src/js/` folder.
+We hope you're already familiar with the CommonJS pattern that Node.js (and `webpack`) uses or the ES2015/ES6 imports. You'll see some examples in the provided files under the `src/js/` folder.
 
-The `index.ejs` file is the template to generate the `index.html` which `webpack` takes care of on the fly. You can add your markup to it as normal but please note, that the generated `main.css` and `main.js` is injected in by `webpack` to the `head` and `body` elements.
+The `src/index.ejs` file is the template to generate `build/index.html` which `webpack` takes care of on the fly. You can add your markup to it as normal but please note, that the generated `main.css` and `main.js` is injected in by `webpack` into the `head` and `body` elements.
 
 Hope it all makes sense, we're looking forward to your solution, happy coding! :)
 
