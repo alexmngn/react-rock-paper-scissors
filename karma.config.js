@@ -2,7 +2,6 @@
 
 // Karma configuration
 
-const webpack = require('webpack');
 const WebpackKarmaWarningsPlugin = require('./webpack-karma-warnings-plugin');
 const webpackConfig = require('./webpack.config');
 
