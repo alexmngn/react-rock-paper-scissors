@@ -8,8 +8,7 @@ const webpackConfig = require('./webpack.config');
 module.exports = function (config) {
 
 	webpackConfig.devtool = 'inline-source-map';
-	webpackConfig.entry = {};
-	webpackConfig.output = {};
+	delete webpackConfig.entry;
 	webpackConfig.plugins = [new WebpackKarmaWarningsPlugin()];
 
 	config.set({

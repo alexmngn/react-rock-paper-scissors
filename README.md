@@ -23,7 +23,7 @@ Don't know the game? http://en.wikipedia.org/wiki/Rock-paper-scissors
 
 ## Technical Requirements
 
-- We prefer to use vanilla Javascript and ES2015/ES6
+- We prefer to use vanilla Javascript and the latest EcmaScript (ES6+) features
 - Using libs/frameworks is not forbidden, but we want to see your code, not someone else's
 - You can style your game assets using SASS or pure CSS
 - The solution should work in IE9+ and all modern browsers, bonus points IE8 and lower
@@ -39,10 +39,12 @@ We provided similar but simplified tooling / setup we use on an everyday basis h
 The tooling we provide is the following:
 
 - `webpack` to modularise your Javascript code
-- `babel` to utilise ES2015/ES6 features today in case you're into it
+- `babel` to utilise ES6+ and Stage-3 features
 - `node-sass` to modularise your styling via SASS
 - `eslint` to make sure your code meets the standards
 - `karma`, `mocha` and `chai` to help you write and run your unit tests in various browsers
+
+### Install dependencies
 
 To start developing, fork and clone the project first, then make sure you have Node.js *6.x LTS* or higher.
 
@@ -63,7 +65,7 @@ from the project folder.
 You'll have the following CLI commands available:
 
 - `yarn run dev` running `webpack-dev-server` and serving the project on `localhost`
-- `yarn run test -- --browsers Chrome` running unit tests via `karma` in Chrome
+- `yarn run test -- --browsers Chrome,Safari` running unit tests via `karma` e.g. in Chrome and Safari
 - `yarn run lint` running `eslint` against your source (and config) files
 - `yarn run build` running `webpack` build
 - `yarn run serve` serving the `build/` folder contents
