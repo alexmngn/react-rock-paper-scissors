@@ -46,7 +46,7 @@ The tooling we provide is the following:
 
 ### Install dependencies
 
-To start developing, fork and clone the project first, then make sure you have Node.js *6.x LTS* or higher.
+To start developing, fork and clone the project first, then make sure you have Node.js *4.x* or higher.
 
 You'll need `yarn` to install the dependencies we locked in via the `yarn.lock` checked in to this repo.
 

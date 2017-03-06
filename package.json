@@ -3,7 +3,7 @@
   "description": "Gumtree UK frontend developer test project",
   "version": "2.1.0",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=4.0.0"
   },
   "repository": {
     "type": "git",
