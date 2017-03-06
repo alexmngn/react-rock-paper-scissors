@@ -26,7 +26,7 @@ Don't know the game? http://en.wikipedia.org/wiki/Rock-paper-scissors
 - We prefer to use vanilla Javascript and the latest EcmaScript (ES6+) features
 - Using libs/frameworks is not forbidden, but we want to see your code, not someone else's
 - You can style your game assets using SASS or pure CSS
-- The solution should work in IE9+ and all modern browsers, bonus points IE8 and lower
+- The solution should work in IE9+ and all modern browsers
 
 ## How to start coding
 
