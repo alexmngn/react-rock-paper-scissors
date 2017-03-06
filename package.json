@@ -1,9 +1,9 @@
 {
   "name": "frontend-developer-test",
   "description": "Gumtree UK frontend developer test project",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "engines": {
-    "node": ">=5.0.0"
+    "node": ">=4.0.0"
   },
   "repository": {
     "type": "git",
@@ -17,33 +17,35 @@
     "lint": "eslint . --ext .js"
   },
   "devDependencies": {
-    "babel": "^6.5.2",
-    "babel-core": "^6.22.1",
-    "babel-loader": "^6.2.4",
-    "babel-preset-es2015": "^6.9.0",
+    "babel": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-env": "^1.2.0",
+    "babel-preset-stage-3": "^6.22.0",
     "chai": "^3.5.0",
-    "css-loader": "^0.23.1",
-    "eslint": "^2.11.1",
+    "css-loader": "^0.26.2",
+    "eslint": "^3.17.0",
     "eslint-loader": "^1.3.0",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "^2.1.0",
     "html-webpack-plugin": "^2.19.0",
     "http-server": "^0.9.0",
-    "karma": "^0.13.22",
+    "karma": "^1.5.0",
     "karma-chai": "^0.1.0",
-    "karma-chrome-launcher": "^1.0.1",
+    "karma-chrome-launcher": "^2.0.0",
     "karma-firefox-launcher": "^1.0.0",
     "karma-ie-launcher": "^1.0.0",
     "karma-mocha": "^1.0.1",
     "karma-mocha-reporter": "^2.0.3",
     "karma-safari-launcher": "^1.0.0",
     "karma-sourcemap-loader": "^0.3.7",
-    "karma-webpack": "^1.7.0",
-    "mocha": "^2.5.3",
-    "node-sass": "^3.7.0",
-    "sass-loader": "^3.2.0",
+    "karma-webpack": "^2.0.2",
+    "mocha": "^3.2.0",
+    "node-sass": "^4.5.0",
+    "sass-loader": "^6.0.2",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
+    "webpack": "^2.2.1",
+    "webpack-core": "^0.6.9",
+    "webpack-dev-server": "^2.4.1"
   },
   "license": "UNLICENSED"
 }

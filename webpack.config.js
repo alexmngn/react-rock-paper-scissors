@@ -1,11 +1,11 @@
 const path = require('path');
 
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 	cache: true,
-	debug: true,
 	context: process.cwd(),
 	devtool: 'source-map',
 	devServer: {
@@ -13,16 +13,13 @@ module.exports = {
 		port: 3333
 	},
 	resolve: {
-		root: [
+		modules: [
 			path.resolve('./node_modules')
 		],
-		extensions: ['', '.js']
-	},
-	resolveLoader: {
-		root: path.join(process.cwd(), 'node_modules')
+		extensions: ['.js']
 	},
 	entry: {
-		"main": "./src/js/main.js"
+		'main': './src/js/main.js'
 	},
 	output: {
 		path: path.join(process.cwd(), 'build'),
@@ -33,27 +30,40 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: 'src/index.ejs'
 		}),
-		new ExtractTextPlugin("[name].css")
+		new ExtractTextPlugin({
+			filename: '[name].css'
+		}),
+		new webpack.LoaderOptionsPlugin({
+			debug: true
+		})
 	],
 	module: {
-		preLoaders: [{
+		rules: [{
+			enforce: 'pre',
 			test: /\.js$/,
-			loader: 'eslint',
+			use: {
+				loader: 'eslint-loader',
+				options: {
+					failOnError: true
+				}
+			},
 			exclude: [/node_modules/]
-		}],
-		loaders: [{
+		},{
 			test: /\.css$/,
-			loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+			use: ExtractTextPlugin.extract({
+				fallback: 'style-loader',
+				use: 'css-loader'
+			})
 		},{
 			test: /\.scss$/,
-			loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
+			use: ExtractTextPlugin.extract({
+				fallback: 'style-loader',
+				use: ['css-loader', 'sass-loader']
+			})
 		},{
 			test: /\.js$/,
 			exclude: [/node_modules/],
-			loader: 'babel'
+			use: 'babel-loader'
 		}]
-	},
-	eslint: {
-		failOnError: true
 	}
 };
