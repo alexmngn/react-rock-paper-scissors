@@ -19,7 +19,7 @@ module.exports = {
 		extensions: ['.js', '.json', '.jsx', ''],
 	},
 	resolveLoader: {
-		root: path.join(process.cwd(), 'node_modules')
+		root: [path.join(process.cwd(), 'node_modules')]
 	},
 	entry: [
 		require.resolve('react-dev-utils/webpackHotDevClient'),
@@ -63,7 +63,7 @@ module.exports = {
 			loader: 'style!css?importLoaders=1!postcss'
 		},{
 			test: /\.scss$/,
-			loader: 'style!css?modules&importLoaders=1&localIdentName=[local]_[hash:base64:5]!postcss!sass'
+			loader: 'style!css?importLoaders=1&localIdentName=[local]_[hash:base64:5]!postcss!sass'
 		},{
 			test: /\.(js|jsx)$/,
 			include: [/src/],

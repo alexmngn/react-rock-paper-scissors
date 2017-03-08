@@ -1,0 +1,19 @@
+:local(.ChoiceIcon) {
+	$size: 100px;
+
+	background-color: #fff;
+	border: 0;
+	border-radius: $size / 2;
+	box-sizing: border-box;
+	display: inline-block;
+	color: #999;
+	font-size: 60px;
+	padding: 20px;
+	width: $size;
+	height: $size;
+
+	&.empty {
+		background-color: transparent;
+		border: 4px dashed #fff;
+	}
+}
