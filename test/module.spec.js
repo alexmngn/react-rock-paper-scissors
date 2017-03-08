@@ -1,4 +1,4 @@
-import print from '../src/js/module';
+const print = require('../src/module').default;
 
 describe('example module', () => {
 
