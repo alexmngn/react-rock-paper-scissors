@@ -8,21 +8,28 @@ class Choices extends Component {
 		return (
 			<div styleName="Choices">
 				{Object.entries(this.props.choices).map(([ key ]) => (
-					<button
-						key={key}
-						onClick={() => this.props.onClickChoice(key)}
-					>
-						{key}
-					</button>
+					(!this.props.selected || this.props.selected === key) && (
+						<button
+							key={key}
+							disabled={this.props.selected}
+							onClick={() => this.props.onClickChoice(key)}
+						>
+							{key}
+						</button>
+					)
 				))}
+				--
+				<button onClick={this.props.onClickReset}>Reset</button>
 			</div>
 		);
 	}
 }
 
 Choices.propTypes = {
+	selected: PropTypes.string,
 	choices: PropTypes.object.isRequired,
 	onClickChoice: PropTypes.func.isRequired,
+	onClickReset: PropTypes.func.isRequired,
 };
 
 export default CSSModules(Choices, styles);
