@@ -4,12 +4,17 @@ import styles from './styles.scss';
 
 import Weapon from 'scenes/Game/components/Weapon';
 
-const Player = ({ label, weapon }) => (
+const Player = ({ label, weapon, score }) => (
 	<div styleName="Player">
-		<span className="label">{label}</span>
+		<div>
+			<span className="label">{label}</span>
+		</div>
 		<Weapon
 			icon={weapon}
 		/>
+		<div>
+			<span className="score">{score} PT{score > 1 && 'S'}</span>
+		</div>
 	</div>
 );
 

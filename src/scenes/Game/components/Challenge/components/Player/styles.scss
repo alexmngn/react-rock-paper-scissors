@@ -2,14 +2,22 @@
 	display: inline-block;
 	width: 320px;
 
+	> div {
+		display: inline-block;
+		font-size: 14px;
+		text-align: center;
+		width: 105px;
+	}
+
 	> span {
 		vertical-align: middle;
 	}
 
-	.label {
+	.score {
+		border: 1px solid #fff;
+		border-radius: 3px;
 		display: inline-block;
-		font-size: 14px;
-		text-align: center;
-		width: 110px;
+		min-width: 60px;
+		padding: 4px;
 	}
 }

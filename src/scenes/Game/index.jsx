@@ -48,9 +48,11 @@ const initialState = {
 	mode: modeKeys[0],
 	player1: {
 		weapon: null,
+		score: 0,
 	},
 	player2: {
 		weapon: null,
+		score: 0,
 	},
 	winner: null,
 };
@@ -62,24 +64,31 @@ class Game extends Component {
 	play(weapon) {
 		const weapon1 = getRandomWeapon();
 		const weapon2 = weapon || getRandomWeapon();
+		const winner = getWinner(weapon1, weapon2);
 
 		this.setState({
 			player1: {
+				...this.state.player1,
 				weapon: weapon1,
+				...((winner === 1) ? { score: this.state.player1.score + 1 } : {}),
 			},
 			player2: {
+				...this.state.player2,
 				weapon: weapon2,
+				...((winner === 2) ? { score: this.state.player2.score + 1 } : {}),
 			},
-			winner: getWinner(weapon1, weapon2),
+			winner,
 		});
 	}
 
 	restart() {
 		this.setState({
 			player1: {
+				...this.state.player1,
 				weapon: initialState.player1.weapon,
 			},
 			player2: {
+				...this.state.player2,
 				weapon: initialState.player2.weapon,
 			},
 			winner: initialState.winner,
