@@ -1,3 +1,15 @@
 :local(.Player) {
 	display: inline-block;
+	width: 320px;
+
+	> span {
+		vertical-align: middle;
+	}
+
+	.label {
+		display: inline-block;
+		font-size: 14px;
+		text-align: center;
+		width: 110px;
+	}
 }

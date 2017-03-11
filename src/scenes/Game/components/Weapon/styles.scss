@@ -1,19 +1,22 @@
 :local(.Weapon) {
-	$size: 150px;
+	$height: 60px;
 
 	background-color: #fff;
-	border: 0;
-	border-radius: $size / 2;
-	box-sizing: border-box;
+	border: 2px solid transparent;
+	border-radius: 50%;
 	display: inline-block;
-	color: #999;
+	color: #4B6A90;
 	font-size: 60px;
-	padding: 45px;
-	width: $size;
-	height: $size;
+	height: $height;
+	line-height: $height;
+	padding: 20px;
+	text-align: center;
+	width: $height;
 
 	&.empty {
 		background-color: transparent;
-		border: 4px dashed #fff;
+		border: 2px dashed #fff;
+		color: #fff;
+		font-size: 24px;
 	}
 }

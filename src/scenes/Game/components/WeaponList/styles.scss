@@ -1,18 +1,29 @@
 :local(.WeaponList) {
+	height: 160px;
 	text-align: center;
-	list-style-type: none;
+
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
 
 	li {
 		display: inline-block;
 	}
 
 	button {
-		background: transparent;
-		border: 0;
-		cursor: pointer;
+		$button-size: 120px;
 
-		&:hover {
-			opacity: 0.8;
-		}
+		background: transparent;
+		height: $button-size;
+		padding: 0;
+		width: $button-size;
+	}
+
+	.label {
+		display: inline-block;
+		font-size: 12px;
+		margin: 10px 0;
 	}
 }

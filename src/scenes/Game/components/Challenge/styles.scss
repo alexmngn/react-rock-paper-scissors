@@ -1,8 +1,11 @@
 :local(.Challenge) {
-	width: 100px;
+	padding: 20px 0;
+	text-align: center;
+	width: 320px;
 
 	.vs {
 		display: inline-block;
+		font-weight: bold;
 		margin: 20px;
 	}
 }

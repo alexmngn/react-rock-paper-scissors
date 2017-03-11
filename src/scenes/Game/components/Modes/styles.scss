@@ -1,4 +1,10 @@
 :local(.Modes) {
-	border-bottom: 1px solid #ccc;
+	text-align: center;
 	padding: 10px;
+
+	button {
+		font-size: 12px;
+		margin-top: 10px;
+		padding: 4px 7px;
+	}
 }
