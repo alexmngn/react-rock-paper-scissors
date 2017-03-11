@@ -7,7 +7,9 @@ const Result = ({ winner, player1Label, player2Label, onClickPlay }) => (
 	<div styleName="Result">
 		{winner !== null && (
 			<div className="winner">
-				<span>{winner === 1 ? player1Label : player2Label} {winner !== 'TIE' && 'WINS'}</span>
+				<span>
+					{winner === false ? 'TIE' : `${(winner === 1 ? player1Label : player2Label)} WINS`}
+				</span>
 			</div>
 		)}
 		<div className="play">
