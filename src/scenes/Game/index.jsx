@@ -40,17 +40,19 @@ const getRandomWeapon = () => {
 };
 
 const getWinner = (weapon1, weapon2) => {
-	if (weapon1 === weapon2) return false;
+	if (weapon1 === weapon2) return 0;
 	return weapons[weapon1].wins.some(wins => wins === weapon2) ? 1 : 2;
 }
 
 const initialState = {
 	mode: modeKeys[0],
 	player1: {
+		loading: false,
 		weapon: null,
 		score: 0,
 	},
 	player2: {
+		loading: false,
 		weapon: null,
 		score: 0,
 	},
@@ -61,26 +63,61 @@ class Game extends Component {
 
 	state = initialState
 
+	/**
+	 * Play a round
+	 * @param weapon When passed, will be used as Player 2 weapon. Otherwise, will generate a random weapon
+	 */
 	play(weapon) {
 		const weapon1 = getRandomWeapon();
 		const weapon2 = weapon || getRandomWeapon();
-		const winner = getWinner(weapon1, weapon2);
+		const simulateMode = this.state.mode === modeKeys[1];
 
 		this.setState({
 			player1: {
 				...this.state.player1,
 				weapon: weapon1,
-				...((winner === 1) ? { score: this.state.player1.score + 1 } : {}),
+				loading: true,
 			},
 			player2: {
 				...this.state.player2,
 				weapon: weapon2,
+				...((simulateMode) ? { loading: true } : {}),
+			},
+		});
+
+		// Update result after some delay
+		setTimeout(() => {
+			this.setResult();
+		}, 500 + Math.random() * 500)
+	}
+
+	/**
+	 * Determine the winner and set the result in the state
+	 */
+	setResult() {
+		const winner = getWinner(this.state.player1.weapon, this.state.player2.weapon);
+		const simulateMode = this.state.mode === modeKeys[1];
+
+		this.setState({
+			player1: {
+				...this.state.player1,
+				...((winner === 1) ? { score: this.state.player1.score + 1 } : {}),
+				loading: false,
+			},
+			player2: {
+				...this.state.player2,
 				...((winner === 2) ? { score: this.state.player2.score + 1 } : {}),
+				...(simulateMode ? {
+					loading: false,
+				} : {}),
 			},
 			winner,
 		});
 	}
 
+	/**
+	 * Reset the weapons and winner states
+	 */
 	restart() {
 		this.setState({
 			player1: {
@@ -95,10 +132,16 @@ class Game extends Component {
 		});
 	}
 
+	/**
+	 * Reset the entire state to initial values
+	 */
 	reset() {
 		this.setState(initialState);
 	}
 
+	/**
+	 * Toggle mode between player vs computer & computer vs computer
+	 */
 	toggleMode() {
 		this.reset();
 		this.setState({ mode: this.state.mode === modeKeys[0] ? modeKeys[1] : modeKeys[0] });
@@ -106,6 +149,7 @@ class Game extends Component {
 
 	render() {
 		const { player1Label, player2Label } = modes[this.state.mode];
+		const loading = (this.state.player1.loading || this.state.player2.loading);
 		return (
 			<div styleName="Game">
 				<h1>
@@ -139,6 +183,7 @@ class Game extends Component {
 							player1Label={player1Label}
 							player2Label={player2Label}
 							winner={this.state.winner}
+							loading={loading}
 							onClickPlay={() => this.state.mode === modeKeys[1] ?
 								this.play() : this.restart()
 							}

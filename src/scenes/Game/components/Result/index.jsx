@@ -3,17 +3,22 @@ import CSSModules from 'react-css-modules';
 import styles from './styles.scss';
 import Button from 'components/Button';
 
-const Result = ({ winner, player1Label, player2Label, onClickPlay }) => (
+const Result = ({ winner, player1Label, player2Label, onClickPlay, loading }) => (
 	<div styleName="Result">
-		{winner !== null && (
+		{winner !== null && !loading && (
 			<div className="winner">
 				<span>
-					{winner === false ? 'TIE' : `${(winner === 1 ? player1Label : player2Label)} WINS`}
+					{winner === 0 ? 'TIE' : `${(winner === 1 ? player1Label : player2Label)} WINS`}
 				</span>
 			</div>
 		)}
 		<div className="play">
-			<Button onClick={onClickPlay}>PLAY {winner !== null && 'AGAIN'}</Button>
+			<Button
+				disabled={loading}
+				onClick={onClickPlay}
+			>
+				PLAY {winner !== null && 'AGAIN'}
+			</Button>
 		</div>
 	</div>
 );
