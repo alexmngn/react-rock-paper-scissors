@@ -108,6 +108,10 @@ class Game extends Component {
 		const { player1Label, player2Label } = modes[this.state.mode];
 		return (
 			<div styleName="Game">
+				<h1>
+					ROCK, PAPER, SCISSORS
+				</h1>
+
 				<div className="modes">
 					<Modes
 						onClickMode={() => this.toggleMode()}

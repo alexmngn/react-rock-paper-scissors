@@ -1,5 +1,14 @@
 :local(.Game) {
 	border: 0;
+	min-width: 320px;
+
+	h1 {
+		background-color: #152a43;
+		font-size: 20px;
+		margin: 0 0 10px;
+		padding: 20px;
+		text-align: center;
+	}
 
 	.modes {
 		margin: 20px 0;
@@ -11,6 +20,7 @@
 
 	.footer {
 		background-color: #4B6A90;
+		margin-top: 20px;
 		padding: 10px;
 	}
 }

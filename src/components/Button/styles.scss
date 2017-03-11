@@ -6,7 +6,11 @@
 	color: #27466E;
 	padding: 7px 12px;
 
-	:hover {
+	&:hover {
 		opacity: 0.8;
+	}
+
+	&:disabled {
+		opacity: 0.5;
 	}
 }
