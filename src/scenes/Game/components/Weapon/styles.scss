@@ -1,5 +1,5 @@
-:local(.ChoiceIcon) {
-	$size: 100px;
+:local(.Weapon) {
+	$size: 150px;
 
 	background-color: #fff;
 	border: 0;
@@ -8,7 +8,7 @@
 	display: inline-block;
 	color: #999;
 	font-size: 60px;
-	padding: 20px;
+	padding: 45px;
 	width: $size;
 	height: $size;
 

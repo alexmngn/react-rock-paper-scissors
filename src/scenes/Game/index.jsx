@@ -3,10 +3,11 @@ import CSSModules from 'react-css-modules';
 
 import styles from './styles.scss';
 import Modes from './components/Modes';
-import Choices from './components/Choices';
-import ChoiceIcon from './components/ChoiceIcon';
+import Challenge from './components/Challenge';
+import WeaponList from './components/WeaponList';
+import Result from './components/Result';
 
-const choices = {
+const weapons = {
 	rock: {
 		wins: ['scissors'],
 	},
@@ -21,42 +22,35 @@ const choices = {
 const modes = {
 	vs: {
 		label: 'Player vs Computer',
-		winnerMap: ['Tie', 'Player', 'Computer'],
+		player1Label: 'Computer',
+		player2Label: 'Player',
 	},
 	simulate: {
 		label: 'Computer vs Computer',
-		winnerMap: ['Tie', 'Computer 1', 'Computer 2'],
+		player1Label: 'Computer 1',
+		player2Label: 'Computer 2',
 	}
 };
 
 const modeKeys = Object.keys(modes);
+const weaponKeys = Object.keys(weapons);
 
-const getRandomChoice = () => {
-	const keys = Object.keys(choices);
-	return keys[ keys.length * Math.random() << 0];
+const getRandomWeapon = () => {
+	return weaponKeys[ weaponKeys.length * Math.random() << 0];
 };
 
-const getWinner = (choice1, choice2) => {
-	if (choice1 === choice2) return 0;
-	return choices[choice1].wins.some(wins => wins === choice2) ? 1 : 2;
-};
-
-const renderResultChoice = (icon, label) => {
-	return (
-		<div className="result-choice">
-			<ChoiceIcon
-				icon={icon}
-			/><br />
-			<span className="label">{label}</span>
-		</div>
-	)
+const getWinner = (weapon1, weapon2) => {
+	if (weapon1 === weapon2) return false;
+	return weapons[weapon1].wins.some(wins => wins === weapon2) ? 1 : 2;
 }
 
 const initialState = {
 	mode: modeKeys[0],
-	choices: {
-		player1: null,
-		player2: null,
+	player1: {
+		weapon: null,
+	},
+	player2: {
+		weapon: null,
 	},
 	winner: null,
 };
@@ -65,55 +59,40 @@ class Game extends Component {
 
 	state = initialState
 
-	changeMode(mode) {
-		this.reset();
-		this.setState({ mode });
+	play(weapon) {
+		const weapon1 = getRandomWeapon();
+		const weapon2 = weapon || getRandomWeapon();
+
+		this.setState({
+			player1: {
+				weapon: weapon1,
+			},
+			player2: {
+				weapon: weapon2,
+			},
+			winner: getWinner(weapon1, weapon2),
+		});
 	}
 
-	play(choice) {
-		this.setWinner(choice || getRandomChoice(), getRandomChoice());
-	}
-
-	setWinner(player1, player2) {
-		const winner = getWinner(player1, player2);
-		this.setState({ choices: { player1, player2 }, winner });
+	restart() {
+		this.setState({
+			player1: {
+				weapon: initialState.player1.weapon,
+			},
+			player2: {
+				weapon: initialState.player2.weapon,
+			},
+			winner: initialState.winner,
+		});
 	}
 
 	reset() {
 		this.setState(initialState);
 	}
 
-	renderResult() {
-		return (
-			<div className="result-wrapper">
-				{renderResultChoice(this.state.choices.player1, modes[this.state.mode].winnerMap[1])}
-				<div className="result">
-					<span>
-						{modes[this.state.mode].winnerMap[this.state.winner]}
-						{[null, 0].indexOf(this.state.winner) === -1 && ' wins'}
-					</span>
-					<div className="reset">
-						<button
-							onClick={() => this.state.mode === modeKeys[0] ? this.reset() : this.play()}
-						>
-							Play {this.state.winner !== null && 'again'}
-						</button>
-					</div>
-				</div>
-				{renderResultChoice(this.state.choices.player2, modes[this.state.mode].winnerMap[2])}
-			</div>
-		)
-	}
-
-	renderVsMode() {
-		return (
-			<div className="vs-mode">
-				<Choices
-					choices={choices}
-					onClickChoice={choice => this.play(choice)}
-				/>
-			</div>
-		);
+	changeMode(mode) {
+		this.reset();
+		this.setState({ mode });
 	}
 
 	render() {
@@ -124,8 +103,27 @@ class Game extends Component {
 					onChange={mode => this.changeMode(mode)}
 					selected={this.state.mode}
 				/>
-				{this.state.winner === null && this.state.mode === modeKeys[0] && this.renderVsMode()}
-				{(this.state.winner !== null || this.state.mode === modeKeys[1]) && this.renderResult()}
+				<Challenge
+					player1={this.state.player1}
+					player2={this.state.player2}
+				/>
+				{this.state.winner === null && this.state.mode === modeKeys[0] && (
+					<WeaponList
+						weapons={weaponKeys}
+						onClickWeapon={weapon => this.play(weapon)}
+					/>
+				)}
+
+				{(this.state.winner !== null || this.state.mode === modeKeys[1]) && (
+					<Result
+						player1Label={modes[this.state.mode].player1Label}
+						player2Label={modes[this.state.mode].player2Label}
+						winner={this.state.winner}
+						onClickPlay={() => this.state.mode === modeKeys[1] ?
+							this.play() : this.restart()
+						}
+					/>
+				)}
 			</div>
 		);
 	}

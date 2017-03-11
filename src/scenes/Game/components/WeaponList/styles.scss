@@ -1,0 +1,18 @@
+:local(.WeaponList) {
+	text-align: center;
+	list-style-type: none;
+
+	li {
+		display: inline-block;
+	}
+
+	button {
+		background: transparent;
+		border: 0;
+		cursor: pointer;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+}
