@@ -171,14 +171,14 @@ class Game extends Component {
 				</div>
 
 				<div className="footer">
-					{this.state.winner === null && this.state.mode === modeKeys[0] && (
+					{this.state.winner === null && !loading && this.state.mode === modeKeys[0] && (
 						<WeaponList
 							weapons={weaponKeys}
 							onClickWeapon={weapon => this.play(weapon)}
 						/>
 					)}
 
-					{(this.state.winner !== null || this.state.mode === modeKeys[1]) && (
+					{(this.state.winner !== null || loading || this.state.mode === modeKeys[1]) && (
 						<Result
 							player1Label={player1Label}
 							player2Label={player2Label}

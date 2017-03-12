@@ -17,7 +17,7 @@ const Result = ({ winner, player1Label, player2Label, onClickPlay, loading }) =>
 				disabled={loading}
 				onClick={onClickPlay}
 			>
-				PLAY {winner !== null && 'AGAIN'}
+				PLAY {(loading || winner !== null) && 'AGAIN'}
 			</Button>
 		</div>
 	</div>
