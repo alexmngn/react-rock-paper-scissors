@@ -7,4 +7,4 @@ function load(modules) {
 	});
 }
 
-load(require.context('./', true, /\.spec\.js$/));
+load(require.context('./src', true, /\.spec\.js$/));

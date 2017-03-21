@@ -1,13 +1,13 @@
 {
-  "name": "frontend-developer-test",
-  "description": "Gumtree UK frontend developer test project",
-  "version": "2.0.0",
+  "name": "react-rock-paper-scissors",
+  "description": "Rock paper scissors game with ReactJS",
+  "version": "1.0.0",
   "engines": {
     "node": ">=5.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:gumtreeuk/rockpaperscissors.git"
+    "url": "git@github.com:alexmngn/react-rock-paper-scissors.git"
   },
   "scripts": {
     "test": "karma start karma.config.js --no-single-run",
@@ -24,6 +24,7 @@
     "babel-loader": "^6.4.0",
     "babel-preset-react-app": "^2.2.0",
     "chai": "^3.5.0",
+    "chai-enzyme": "^0.6.1",
     "css-loader": "^0.23.1",
     "enzyme": "^2.7.1",
     "eslint": "^3.17.1",
