@@ -11,6 +11,12 @@ module.exports = function (config) {
 	webpackConfig.entry = {};
 	webpackConfig.output = {};
 	webpackConfig.plugins = [new WebpackKarmaWarningsPlugin()];
+	webpackConfig.externals = {
+		'cheerio': 'window',
+		'react/addons': true,
+		'react/lib/ExecutionEnvironment': true,
+		'react/lib/ReactContext': true
+	};
 
 	config.set({
 		// base path that will be used to resolve all patterns (eg. files, exclude)
@@ -22,7 +28,6 @@ module.exports = function (config) {
 
 		// list of files / patterns to load in the browser
 		files: ['test/webpack.bundle.js'],
-
 
 		// preprocess matching files before serving them to the browser
 		// available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
@@ -61,7 +66,7 @@ module.exports = function (config) {
 
 		// start these browsers
 		// available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-		browsers: [],
+		browsers: ['Chrome'],
 
 
 		// Continuous Integration mode

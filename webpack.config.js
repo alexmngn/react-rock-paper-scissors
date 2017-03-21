@@ -40,7 +40,7 @@ module.exports = {
 	],
 	module: {
 		preLoaders: [{
-			test: /\.(js|.jsx)$/,
+			test: /\.(js|jsx)$/,
 			loader: 'eslint',
 			exclude: [/node_modules/]
 		}],
@@ -66,7 +66,7 @@ module.exports = {
 			loader: 'style!css?importLoaders=1&localIdentName=[local]_[hash:base64:5]!postcss!sass'
 		},{
 			test: /\.(js|jsx)$/,
-			include: [/src/],
+			include: [/(src|test)/],
 			loader: 'babel'
 		}]
 	},
@@ -83,6 +83,6 @@ module.exports = {
 		];
 	},
 	eslint: {
-		failOnError: true
+		failOnError: true,
 	}
 };
