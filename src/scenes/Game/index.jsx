@@ -35,11 +35,11 @@ const modes = {
 const modeKeys = Object.keys(modes);
 const weaponKeys = Object.keys(weapons);
 
-const getRandomWeapon = () => {
+export const getRandomWeapon = () => {
 	return weaponKeys[ weaponKeys.length * Math.random() << 0];
 };
 
-const getWinner = (weapon1, weapon2) => {
+export const getWinner = (weapon1, weapon2) => {
 	if (weapon1 === weapon2) return 0;
 	return weapons[weapon1].wins.some(wins => wins === weapon2) ? 1 : 2;
 }
