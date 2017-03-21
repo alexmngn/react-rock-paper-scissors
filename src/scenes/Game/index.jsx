@@ -96,7 +96,6 @@ class Game extends Component {
 	 */
 	setResult() {
 		const winner = getWinner(this.state.player1.weapon, this.state.player2.weapon);
-		const simulateMode = this.state.mode === modeKeys[1];
 
 		this.setState({
 			player1: {
@@ -107,9 +106,7 @@ class Game extends Component {
 			player2: {
 				...this.state.player2,
 				...((winner === 2) ? { score: this.state.player2.score + 1 } : {}),
-				...(simulateMode ? {
-					loading: false,
-				} : {}),
+				loading: false,
 			},
 			winner,
 		});
@@ -143,8 +140,9 @@ class Game extends Component {
 	 * Toggle mode between player vs computer & computer vs computer
 	 */
 	toggleMode() {
+		const mode = this.state.mode;
 		this.reset();
-		this.setState({ mode: this.state.mode === modeKeys[0] ? modeKeys[1] : modeKeys[0] });
+		this.setState({ mode: mode === modeKeys[0] ? modeKeys[1] : modeKeys[0] });
 	}
 
 	render() {
