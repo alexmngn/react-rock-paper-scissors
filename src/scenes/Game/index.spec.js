@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-expressions */
 
+import 'babel-polyfill';
 import React from 'react';
 import { shallow } from 'enzyme';
 import Game, { getRandomWeapon, getWinner } from 'scenes/Game';

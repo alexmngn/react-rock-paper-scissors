@@ -1,14 +1,13 @@
 language: node_js
 
 node_js:
-  - "node"
+  - 7.7
 
 before_install:
-  - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
   - "npm install -g npm@^4"
 
 install:
   - npm install
 
 script:
-  - npm test -- --browsers=PhantomJS
+  - npm test -- --browsers=PhantomJS --single-run
