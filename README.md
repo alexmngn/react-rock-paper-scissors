@@ -17,7 +17,7 @@ This project has been tested with node v7.7.1 and npm 4.1.2.
 
 You have the following CLI commands available:
 
-- `npm run dev` Runs the project with `webpack-dev-server` and serves it on http://localhost:3333
+- `npm run start` Runs the project with `webpack-dev-server` and serves it on http://localhost:3333
 
 - `npm run test`: Runs unit tests via Karma, in Chrome by default
 
