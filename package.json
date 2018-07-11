@@ -2,6 +2,7 @@
   "name": "react-rock-paper-scissors",
   "description": "Rock paper scissors game with ReactJS",
   "version": "1.0.0",
+  "main": "./src/index.jsx",
   "engines": {
     "node": ">=5.0.0"
   },
@@ -11,7 +12,7 @@
   },
   "scripts": {
     "test": "karma start karma.config.js --no-single-run",
-    "dev": "webpack-dev-server --content-base build/",
+    "start": "webpack-dev-server --content-base build/",
     "build": "webpack",
     "serve": "http-server -p 8000 build/",
     "lint": "eslint . --ext .js,.jsx"
