@@ -26,3 +26,10 @@ You have the following CLI commands available:
 - `npm run build` Runs Webpack build
 
 - `npm run serve` Serves the `build/` folder contents
+
+## Build and run docker image
+
+-  `docker build -t react-rock-paper-scissors .`
+
+-  `docker run -p 3333:3333 react-rock-paper-scissors`
+
