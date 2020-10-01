@@ -11,7 +11,7 @@ It can easily be extended to different versions of the game, such as "Rock Paper
 The project has unit tests which only covers the main game features.
 
 You can fork and clone the project and run `npm install` to install the external dependencies.
-This project has been tested with node v7.7.1 and npm 4.1.2.
+This project has been tested with node v7.7.1 and npm 4.1.2 and updated versions.
 
 ## Helpful commands
 
